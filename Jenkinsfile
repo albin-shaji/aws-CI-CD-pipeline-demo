@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'ap-south-2' 
-        APPLICATION_NAME = 'NIkk-App' 
-        DEPLOYMENT_GROUP = 'Nikk-DeployGroup'
-        S3_BUCKET = 'nikk-codedeploy-artifacts' 
+        APPLICATION_NAME = 'akhil-application' 
+        DEPLOYMENT_GROUP = 'akhil-grp'
+        S3_BUCKET = 'akhil-s3bucket-123' 
               
     }
 
