@@ -14,7 +14,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/NGC-337-2/sample-microservice.git'
+                url: 'https://github.com/Akhil18-kuttu/aws-CI-CD-pipeline-demo.git'
             }
         }
 
