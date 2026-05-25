@@ -13,17 +13,20 @@ permissions:
     owner: ubuntu
     group: ubuntu
     mode: 755
+    type:
+      - file
+      - directory
 
 hooks:
   BeforeInstall:
     - location: scripts/cleanup.sh
       timeout: 300
-      runas: ubuntu
+      runas: root   # cleanup often needs root to remove files created by root
 
   AfterInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
-      runas: ubuntu
+      runas: ubuntu # safe to run npm install as ubuntu
 
   ApplicationStop:
     - location: scripts/stop_server.sh
