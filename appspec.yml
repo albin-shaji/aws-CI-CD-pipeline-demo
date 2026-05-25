@@ -1,20 +1,37 @@
 version: 0.0
 os: linux
 
+file_exists_behavior: OVERWRITE
+
 files:
   - source: /
-    destination: /home/ubuntu/sample-microservice
-    overwrite: yes
+    destination: /home/ubuntu/app
+
+permissions:
+  - object: /home/ubuntu/app
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+    mode: 755
 
 hooks:
+
   BeforeInstall:
-    - location: scripts/stop_server.sh
+    - location: scripts/cleanup.sh
       timeout: 300
+      runas: ubuntu
 
   AfterInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
+      runas: ubuntu
+
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      timeout: 300
+      runas: ubuntu
 
   ApplicationStart:
     - location: scripts/start_server.sh
       timeout: 300
+      runas: ubuntu
