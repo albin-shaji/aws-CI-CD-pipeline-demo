@@ -15,7 +15,6 @@ permissions:
     mode: 755
 
 hooks:
-
   BeforeInstall:
     - location: scripts/cleanup.sh
       timeout: 300
