@@ -2,6 +2,8 @@
 
 set -e
 
-cd /home/ubuntu/app || exit 1
+APP_DIR="/home/ubuntu/app"
+
+cd $APP_DIR || exit 1
 
 npm install
