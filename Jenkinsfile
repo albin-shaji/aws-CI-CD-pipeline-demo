@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'ap-south-2' 
-        APPLICATION_NAME = 'akhil-application' 
-        DEPLOYMENT_GROUP = 'akhil-grp'
-        S3_BUCKET = 'akhil-s3bucket-123' 
+        APPLICATION_NAME = 'albin-app' 
+        DEPLOYMENT_GROUP = 'albin-dg'
+        S3_BUCKET = 'albin-codedeploy-bucket-2026' 
               
     }
 
@@ -14,7 +14,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/Akhil18-kuttu/aws-CI-CD-pipeline-demo.git'
+                url: 'https://github.com/albin-shaji/aws-CI-CD-pipeline-demo.git'
             }
         }
 
@@ -50,7 +50,7 @@ pipeline {
 
         stage('Deploy to CodeDeploy') {
             steps {
-                withAWS(credentials: 'aws-jenkins-creds',
+                withAWS(credentials: 'aws',
                          region: 'ap-south-2') {
 
                     sh '''
