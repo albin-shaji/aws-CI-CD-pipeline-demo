@@ -37,7 +37,7 @@ pipeline {
 
         stage('Upload to S3') {
             steps {
-                withAWS(credentials: 'aws-jenkins-creds',
+                withAWS(credentials: 'aws-ec2-creds',
                          region: 'ap-south-2') {
 
                     sh '''
